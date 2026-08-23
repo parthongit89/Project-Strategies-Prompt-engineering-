@@ -4,20 +4,53 @@ Welcome to the **Full Stack Prompt Engineering for Projects** repository. This w
 
 ---
 
-## Tech Stack Matrix
+## Tech Stack & Application Ecosystem Directory
 
-- **Backend**: Python 3.11+ (FastAPI / Flask)
-- **Database**: PostgreSQL hosted on [Neon DB](https://neon.tech) (Serverless, Branching, SSL/TLS)
-- **Deployment & Hosting**: Managed Web Services on [Render](https://render.com)
-- **Frontend**: HTML5, Tailwind CSS, JavaScript (Vanilla / Modern JS)
-- **UI Ingestion Workflows**: Google Stitch AI Prompts, Figma + MCP Server Integration, Manual Custom Designs
-- **Security & Reliability**: Automated OWASP Audits, Neon DB PITR Disaster Recovery, Alembic Migrations
+Direct links to all official platforms, tools, and libraries utilized in this architecture:
+
+### Backend Engine & Frameworks
+- [**Python 3.11+**](https://www.python.org/) - Primary server-side programming language.
+- [**FastAPI**](https://fastapi.tiangolo.com/) - Modern, high-performance web framework for building REST APIs with Python 3.8+ based on standard Python type hints.
+- [**Flask**](https://flask.palletsprojects.com/) - Lightweight WSGI web application framework.
+- [**SQLAlchemy**](https://www.sqlalchemy.org/) - Python SQL toolkit and Object Relational Mapper (ORM).
+- [**Alembic**](https://alembic.sqlalchemy.org/) - Lightweight database migration tool for usage with SQLAlchemy.
+- [**Pydantic**](https://docs.pydantic.dev/) - Data validation using Python type annotations.
+- [**Pytest**](https://docs.pytest.org/) - Python testing framework for unit and integration test suites.
+
+### Database & Cloud Infrastructure
+- [**PostgreSQL**](https://www.postgresql.org/) - World's most advanced open-source relational database.
+- [**Neon DB**](https://neon.tech/) - Serverless PostgreSQL with instant branching, autoscaling, and point-in-time recovery.
+- [**Render**](https://render.com/) - Cloud platform to build and run web services, background workers, and static sites.
+- [**Vercel**](https://vercel.com/) - Frontend cloud platform for static site edge CDN deployment and serverless routing.
+
+### Authentication & Push Notifications
+- [**Firebase Authentication**](https://firebase.google.com/docs/auth) - Authentication system supporting Google OAuth, email/password, and JWT custom claims.
+- [**Firebase Admin Python SDK**](https://firebase.google.com/docs/admin/setup) - Server-side SDK for ID token verification and custom claims.
+- [**Firebase Cloud Messaging (FCM)**](https://firebase.google.com/docs/cloud-messaging) - Cross-platform messaging solution for push notifications.
+
+### Frontend UI & Design System
+- [**HTML5 (MDN)**](https://developer.mozilla.org/en-US/docs/Web/HTML) - Semantic markup standard.
+- [**Tailwind CSS**](https://tailwindcss.com/) - Utility-first CSS framework for rapid UI development.
+- [**JavaScript (MDN)**](https://developer.mozilla.org/en-US/docs/Web/JavaScript) - Lightweight, interpreted client-side programming language.
+- [**Coolors App**](https://coolors.co/) - Superfast color palette generator and WCAG contrast checker.
+- [**Google Fonts**](https://fonts.google.com/) - Library of 1,500+ open-source font families (Plus Jakarta Sans, Fira Code, Outfit).
+- [**Google Material Symbols & Icons**](https://fonts.google.com/icons) - Variable icon font system.
+- [**Figma**](https://www.figma.com/) - Collaborative interface design and prototyping tool.
+- [**Google Stitch AI**](https://stitch.withgoogle.com/) - Prompt-driven UI generation tool.
+
+### Security, Audit & Ops
+- [**OWASP Top 10**](https://owasp.org/www-project-top-ten/) - Standard awareness document for developers and web application security.
+- [**Bandit**](https://bandit.readthedocs.io/) - Tool designed to find common security issues in Python code.
+- [**pip-audit**](https://pypa.github.io/pip-audit/) - Tool for auditing Python environments for known vulnerabilities.
+- [**TruffleHog**](https://trufflehog.org/) - Secret scanner for detecting leaked credentials and API keys.
+- [**Git**](https://git-scm.com/) - Distributed version control system.
+- [**GitHub**](https://github.com/) - Cloud platform for code hosting, version control, and CI/CD pipelines.
 
 ---
 
 ## Strategy Documentation Map
 
-The system strategy is modularized across 9 core markdown specification documents:
+The system strategy is modularized across 13 core markdown specification documents:
 
 1. [**`PRD.md`**](PRD.md) - **Project Requirement Document**: Vision, target audience, key feature specifications, and core building logic.
 2. [**`Architecture.md`**](Architecture.md) - **System Architecture**: Directory layout, component flow, Neon DB connection pooling, and Render deployment configuration.
@@ -57,11 +90,10 @@ Create a `.env` file in the `backend/` folder based on `.env.example`:
 DATABASE_URL=postgresql://user:password@ep-xxx-pooler.neon.tech/neondb?sslmode=require
 SECRET_KEY=your_super_secret_jwt_key
 ALGORITHM=HS256
-CORS_ORIGINS=https://your-app.onrender.com
+CORS_ORIGINS=https://your-app.vercel.app,https://your-app.onrender.com
 ```
 
-### 3. Deploy to Render & Neon DB
-1. Provision a PostgreSQL instance on **Neon DB** and copy the pooled connection string.
-2. Link your GitHub repository to **Render**.
-3. Set the build command to `pip install -r requirements.txt && alembic upgrade head`.
-4. Set the start command to `uvicorn app.main:app --host 0.0.0.0 --port $PORT`.
+### 3. Deploy to Render, Vercel & Neon DB
+1. Provision a PostgreSQL instance on [**Neon DB**](https://neon.tech/) and copy the pooled connection string.
+2. Deploy the backend API to [**Render**](https://render.com/). Set build command: `pip install -r requirements.txt && alembic upgrade head` and start command: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`.
+3. Deploy the frontend to [**Vercel**](https://vercel.com/) with GitHub automatic branch preview integration.
