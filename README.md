@@ -29,6 +29,7 @@ The system strategy is modularized across 9 core markdown specification document
 8. [**`Security_audits.md`**](Security_audits.md) - **System Security Audits**: OWASP Top 10 mitigation checklist, CORS policies, XSS/CSP headers, and static analysis workflows.
 9. [**`Security_db.md`**](Security_db.md) - **Database Security & DLP**: Neon DB TLS 1.3 encryption, database branching, point-in-time recovery (PITR), and SQL injection defenses.
 10. [**`Authentication.md`**](Authentication.md) - **Authentication & Firebase Integration**: Firebase Auth, Firebase Admin SDK, JWT verification, custom claims, and auth middleware.
+11. [**`Color_theory.md`**](Color_theory.md) - **Color Theory & Palette Strategy**: Coolors.co integration, 60-30-10 rule, Tailwind palette mapping, and WCAG contrast rules.
 
 ---
 
