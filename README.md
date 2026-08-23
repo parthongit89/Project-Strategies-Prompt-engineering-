@@ -4,7 +4,7 @@ Welcome to the **Full Stack Prompt Engineering for Projects** repository. This w
 
 ---
 
-## 🚀 Tech Stack Matrix
+## Tech Stack Matrix
 
 - **Backend**: Python 3.11+ (FastAPI / Flask)
 - **Database**: PostgreSQL hosted on [Neon DB](https://neon.tech) (Serverless, Branching, SSL/TLS)
@@ -15,29 +15,29 @@ Welcome to the **Full Stack Prompt Engineering for Projects** repository. This w
 
 ---
 
-## 📖 Strategy Documentation Map
+## Strategy Documentation Map
 
 The system strategy is modularized across 9 core markdown specification documents:
 
-1. 📄 [**`PRD.md`**](PRD.md) - **Project Requirement Document**: Vision, target audience, key feature specifications, and core building logic.
-2. 🏗️ [**`Architecture.md`**](Architecture.md) - **System Architecture**: Directory layout, component flow, Neon DB connection pooling, and Render deployment configuration.
-3. 📜 [**`Rules.md`**](Rules.md) - **Development Rules**: Coding standards, best practices, anti-patterns (what to avoid), error handling standards, and prompt rules.
-4. 🗺️ [**`Phases.md`**](Phases.md) - **Project Roadmap**: 5-phase execution plan from scaffolding to auth, core engine, frontend styling, and production deployment.
-5. 🎨 [**`Designs.md`**](Designs.md) - **Frontend Design System**: Color tokens, Tailwind CSS rules, HTML templates, and design ingestion workflows (Stitch AI, Figma MCP, Manual).
-6. 🧠 [**`Memory.md`**](Memory.md) - **AI System Memory**: AGY implementation plan tracking, state preservation, decisions log, and session memory context.
-7. ⚡ [**`Skill.md`**](Skill.md) - **Prompt Engineering Skills**: Stored AI logic, system prompt templates, task execution blueprints, and subagent delegation workflows.
-8. 🛡️ [**`Security_audits.md`**](Security_audits.md) - **System Security Audits**: OWASP Top 10 mitigation checklist, CORS policies, XSS/CSP headers, and static analysis workflows.
-9. 🔐 [**`Security_db.md`**](Security_db.md) - **Database Security & DLP**: Neon DB TLS 1.3 encryption, database branching, point-in-time recovery (PITR), and SQL injection defenses.
+1. [**`PRD.md`**](PRD.md) - **Project Requirement Document**: Vision, target audience, key feature specifications, and core building logic.
+2. [**`Architecture.md`**](Architecture.md) - **System Architecture**: Directory layout, component flow, Neon DB connection pooling, and Render deployment configuration.
+3. [**`Rules.md`**](Rules.md) - **Development Rules**: Coding standards, best practices, anti-patterns (what to avoid), error handling standards, and prompt rules.
+4. [**`Phases.md`**](Phases.md) - **Project Roadmap**: 5-phase execution plan from scaffolding to auth, core engine, frontend styling, and production deployment.
+5. [**`Designs.md`**](Designs.md) - **Frontend Design System**: Color tokens, Tailwind CSS rules, HTML templates, and design ingestion workflows (Stitch AI, Figma MCP, Manual).
+6. [**`Memory.md`**](Memory.md) - **AI System Memory**: AGY implementation plan tracking, state preservation, decisions log, and session memory context.
+7. [**`Skill.md`**](Skill.md) - **Prompt Engineering Skills**: Stored AI logic, system prompt templates, task execution blueprints, and subagent delegation workflows.
+8. [**`Security_audits.md`**](Security_audits.md) - **System Security Audits**: OWASP Top 10 mitigation checklist, CORS policies, XSS/CSP headers, and static analysis workflows.
+9. [**`Security_db.md`**](Security_db.md) - **Database Security & DLP**: Neon DB TLS 1.3 encryption, database branching, point-in-time recovery (PITR), and SQL injection defenses.
 
 ---
 
-## 🛠️ Quickstart & Deployment Flow
+## Quickstart & Deployment Flow
 
 ### 1. Local Scaffolding
 ```bash
 # Clone the repository
-git clone https://github.com/your-username/project-strategy.git
-cd project-strategy
+git clone https://github.com/parthongit89/Project-Strategies-Prompt-engineering-.git
+cd Project-Strategies-Prompt-engineering-
 
 # Set up Python virtual environment
 python -m venv venv
