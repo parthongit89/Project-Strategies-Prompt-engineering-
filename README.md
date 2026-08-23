@@ -31,6 +31,7 @@ The system strategy is modularized across 9 core markdown specification document
 10. [**`Authentication.md`**](Authentication.md) - **Authentication & Firebase Integration**: Firebase Auth, Firebase Admin SDK, JWT verification, custom claims, and auth middleware.
 11. [**`Color_theory.md`**](Color_theory.md) - **Color Theory & Palette Strategy**: Coolors.co integration, 60-30-10 rule, Tailwind palette mapping, and WCAG contrast rules.
 12. [**`Typography_icons.md`**](Typography_icons.md) - **Typography & Icons Strategy**: Google Fonts (Plus Jakarta Sans, Fira Code, Outfit), Tailwind font config, and Google Material Symbols integration.
+13. [**`Deployment_vercel.md`**](Deployment_vercel.md) - **Frontend Vercel Deployment**: Vercel Edge CDN configuration, `vercel.json` rewrites, env variables, GitHub branch previews, and Render CORS sync.
 
 ---
 
