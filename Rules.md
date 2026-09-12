@@ -67,3 +67,23 @@ async def app_exception_handler(request: Request, exc: AppException):
 2. **No Hallucinated Imports**: Only reference verified standard library packages or libraries declared in `requirements.txt`.
 3. **Incremental Code Generation**: Request implementation block-by-block (Model -> Schema -> Service -> API Route -> Frontend UI).
 4. **Self-Correction & Linting**: Always instruct the AI agent to verify syntax, non-null checks, and type signatures before outputting final code.
+
+---
+
+## 5. Ponytail Execution Protocol (Lazy Senior Dev Mode)
+
+Before writing or generating code, the agent must evaluate the **7-Step Ponytail Ladder**:
+
+1. **YAGNI (You Aren't Gonna Need It)**: Speculative features = skip it.
+2. **Reuse Existing Code**: Check existing helpers, types, and utilities before writing new functions.
+3. **Use Standard Library**: Prefer Python `functools`, `pathlib`, `json`, `datetime` or JS native methods over custom wrappers.
+4. **Native Platform Features**: Prefer native HTML `<input type="date">`, CSS utility classes, or DB constraints over third-party libraries.
+5. **Installed Dependencies**: Use already installed packages in `requirements.txt`/`package.json`. Do not introduce new dependencies unnecessarily.
+6. **One-Liners**: Make it one line if possible without sacrificing readability or safety.
+7. **Minimum Code**: Write only the minimum correct code that works.
+
+### Non-Negotiable Safety & Quality Boundaries:
+- Never simplify away: input validation, error handling preventing data loss, security controls (OWASP), or accessibility.
+- Bug fixes must address the root cause at the highest shared handler rather than patching individual callers.
+- Non-trivial logic must include at least one runnable check (assert/self-check).
+

@@ -88,3 +88,19 @@ description: Generates end-to-end full stack feature slices including backend ro
 ---
 # Instructions for AGY / Subagent execution...
 ```
+
+---
+
+## 5. Ponytail Lazy-Senior-Dev Commands & Skills Matrix
+
+Ponytail enforces minimal, non-over-engineered execution across all tasks. The following 6 commands and skills are integrated into this repository:
+
+| Command / Skill | Intensity / Trigger | Primary Purpose |
+| :--- | :--- | :--- |
+| **`/ponytail`** | `[lite \| full \| ultra]` | Enforces the 7-step Ponytail decision ladder (YAGNI → stdlib → native → minimum diff). Default level is `full`. |
+| **`/ponytail-review`** | `/ponytail-review` | Over-engineering code review. Scans diffs and returns 1-line deletion/replacement recommendations (`L<line>: <tag> <what> -> <replacement>`). |
+| **`/ponytail-audit`** | `/ponytail-audit` | Whole-repo complexity audit. Scans the entire tree for bloat, unused dependencies, and redundant wrappers. |
+| **`/ponytail-debt`** | `/ponytail-debt` | Harvests all `ponytail:` shortcut comments into a tracked debt ledger so deliberate simplifications don't rot. |
+| **`/ponytail-gain`** | `/ponytail-gain` | Displays the benchmark scoreboard (less code, less cost, faster speed). |
+| **`/ponytail-help`** | `/ponytail-help` | Quick-reference guide for all Ponytail commands, intensity levels, and configuration paths. |
+
