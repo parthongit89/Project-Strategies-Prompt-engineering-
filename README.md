@@ -22,6 +22,7 @@ Direct links to all official platforms, tools, and libraries utilized in this ar
 - [**Neon DB**](https://neon.tech/) - Serverless PostgreSQL with instant branching, autoscaling, and point-in-time recovery.
 - [**Render**](https://render.com/) - Cloud platform to build and run web services, background workers, and static sites.
 - [**Vercel**](https://vercel.com/) - Frontend cloud platform for static site edge CDN deployment and serverless routing.
+- [**Firebase Hosting**](https://firebase.google.com/docs/hosting) - Fast and secure hosting for web apps, static content, and microservices on Google's global CDN.
 
 ### Authentication & Push Notifications
 - [**Firebase Authentication**](https://firebase.google.com/docs/auth) - Authentication system supporting Google OAuth, email/password, and JWT custom claims.
@@ -50,7 +51,7 @@ Direct links to all official platforms, tools, and libraries utilized in this ar
 
 ## Strategy Documentation Map
 
-The system strategy is modularized across 13 core markdown specification documents:
+The system strategy is modularized across 14 core markdown specification documents:
 
 1. [**`PRD.md`**](PRD.md) - **Project Requirement Document**: Vision, target audience, key feature specifications, and core building logic.
 2. [**`Architecture.md`**](Architecture.md) - **System Architecture**: Directory layout, component flow, Neon DB connection pooling, and Render deployment configuration.
@@ -65,6 +66,7 @@ The system strategy is modularized across 13 core markdown specification documen
 11. [**`Color_theory.md`**](Color_theory.md) - **Color Theory & Palette Strategy**: Coolors.co integration, 60-30-10 rule, Tailwind palette mapping, and WCAG contrast rules.
 12. [**`Typography_icons.md`**](Typography_icons.md) - **Typography & Icons Strategy**: Google Fonts (Plus Jakarta Sans, Fira Code, Outfit), Tailwind font config, and Google Material Symbols integration.
 13. [**`Deployment_vercel.md`**](Deployment_vercel.md) - **Frontend Vercel Deployment**: Vercel Edge CDN configuration, `vercel.json` rewrites, env variables, GitHub branch previews, and Render CORS sync.
+14. [**`Deployment_firebase_domains.md`**](Deployment_firebase_domains.md) - **Firebase Hosting & Domains Strategy**: Google Edge CDN, clean multi-site subdomains (`snipy-ai.web.app`), Spark tier zero-cost quotas, custom domain TLD DNS mapping, and CLI runbook.
 
 ---
 
