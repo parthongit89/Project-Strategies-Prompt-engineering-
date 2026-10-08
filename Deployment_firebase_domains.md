@@ -209,3 +209,107 @@ sequenceDiagram
    * **Record 1:** `Type: A`, `Host: @`, `Value: 199.36.158.100` (or designated Firebase IP)
    * **Record 2:** `Type: A`, `Host: @`, `Value: 199.36.158.100` (secondary IP)
 4. **Automated SSL Provisioning:** Google automatically completes domain ownership challenge and issues an encrypted TLS certificate within 15–60 minutes.
+
+---
+
+## 8. Multi-Developer Team Collaboration & GitHub Actions CI/CD
+
+### 8.1 The Team Collaboration Desynchronization Challenge
+In a collaborative engineering team where multiple contributors (e.g., frontend engineers, designers, backend devs) push code to GitHub:
+* **The Problem:** When a colleague pushes frontend improvements to `origin main`, **Vercel auto-deploys**, but **Firebase (`snipy-ai.web.app`) stays stale and outdated**.
+* **Why it happens:** The colleague does not have the project owner's personal Google account or Firebase CLI credentials on their local machine to run `firebase deploy`.
+* **The Architectural Solution:** Connect GitHub repository directly to Firebase Hosting via **GitHub Actions CI/CD**.
+
+```mermaid
+flowchart TD
+    subgraph TeamMembers["Distributed Engineering Team"]
+        Dev1["Project Lead (Local Machine)"]
+        Dev2["Colleague / Frontend Engineer (Remote Laptop)"]
+    end
+
+    GitHubRepo["GitHub Repository (origin main)"]
+
+    subgraph GitHubActions["GitHub Actions Automation Runner"]
+        SecretVault["Encrypted Secrets (FIREBASE_SERVICE_ACCOUNT_*)"]
+        DeployAction["FirebaseExtended/action-hosting-deploy@v0"]
+    end
+
+    subgraph LiveEnvironments["Global Production Platforms (Dual Deployment)"]
+        VercelEdge["Vercel Edge CDN (vercel.app)"]
+        FirebaseHosting["Firebase Hosting (https://snipy-ai.web.app)"]
+    end
+
+    Dev1 -->|git push origin main| GitHubRepo
+    Dev2 -->|git push origin main| GitHubRepo
+
+    GitHubRepo -->|Automatic Webhook Trigger| VercelEdge
+    GitHubRepo -->|Automatic Workflow Dispatch| DeployAction
+    SecretVault -->|Inject IAM Credentials| DeployAction
+    DeployAction -->|Deploy Target: snipy-ai| FirebaseHosting
+```
+
+---
+
+### 8.2 One-Command GitHub Actions Setup (`firebase init hosting:github`)
+
+Run the following initialization command from the project root:
+
+```powershell
+firebase init hosting:github
+```
+
+#### Interactive CLI Prompts & Exact Responses:
+1. **Repository Target:**
+   ```text
+   ? For which GitHub repository would you like to set up a GitHub workflow? (format: user/repository)
+   >> parthongit89/snipy-aws
+   ```
+2. **Build Script Prompt:**
+   ```text
+   ? Set up the workflow to run a build script before every deploy? (y/N)
+   >> n
+   ```
+   *(Select `n` because static HTML/CSS/JavaScript does not require a bundling compilation step).*
+3. **Automatic Live Channel Deploy:**
+   ```text
+   ? Set up automatic deployment to your site's live channel when a PR is merged? (Y/n)
+   >> y
+   ```
+4. **Target Git Branch:**
+   ```text
+   ? What is the name of the GitHub branch associated with your site's live channel? (main)
+   >> main (Press Enter)
+   ```
+
+---
+
+### 8.3 Generated Workflow Specification (`.github/workflows/firebase-hosting-merge.yml`)
+
+Firebase automatically writes a workflow pipeline in your repository and provisions a secure Google Cloud Service Account key into GitHub Secrets:
+
+```yaml
+name: Deploy to Firebase Hosting on merge
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build_and_deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: FirebaseExtended/action-hosting-deploy@v0
+        with:
+          repoToken: '${{ secrets.GITHUB_TOKEN }}'
+          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_SNIPLY_D4CAF }}'
+          channelId: live
+          projectId: sniply-d4caf
+          target: snipy-ai
+```
+
+---
+
+### 8.4 Security & Team Governance Benefits
+1. **Zero Credential Sharing:** Colleagues never touch the project owner's Google password, Firebase login, or AWS Bedrock API credentials.
+2. **Deterministic Parity:** Every single commit merged into `main` instantly synchronizes across both Vercel and Firebase (`snipy-ai.web.app`) in exact lockstep.
+3. **Audit Trail:** Every deployment is logged in the GitHub **Actions** tab with commit author, commit message, and delivery latency metrics.
