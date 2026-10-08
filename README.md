@@ -51,7 +51,7 @@ Direct links to all official platforms, tools, and libraries utilized in this ar
 
 ## Strategy Documentation Map
 
-The system strategy is modularized across 14 core markdown specification documents:
+The system strategy is modularized across 15 core markdown specification documents:
 
 1. [**`PRD.md`**](PRD.md) - **Project Requirement Document**: Vision, target audience, key feature specifications, and core building logic.
 2. [**`Architecture.md`**](Architecture.md) - **System Architecture**: Directory layout, component flow, Neon DB connection pooling, and Render deployment configuration.
@@ -67,6 +67,7 @@ The system strategy is modularized across 14 core markdown specification documen
 12. [**`Typography_icons.md`**](Typography_icons.md) - **Typography & Icons Strategy**: Google Fonts (Plus Jakarta Sans, Fira Code, Outfit), Tailwind font config, and Google Material Symbols integration.
 13. [**`Deployment_vercel.md`**](Deployment_vercel.md) - **Frontend Vercel Deployment**: Vercel Edge CDN configuration, `vercel.json` rewrites, env variables, GitHub branch previews, and Render CORS sync.
 14. [**`Deployment_firebase_domains.md`**](Deployment_firebase_domains.md) - **Firebase Hosting & Domains Strategy**: Google Edge CDN, clean multi-site subdomains (`snipy-ai.web.app`), Spark tier zero-cost quotas, custom domain TLD DNS mapping, and CLI runbook.
+15. [**`SMTP_free_cloud_email_strategy.md`**](SMTP_free_cloud_email_strategy.md) - **Free Cloud Email Strategy**: Google Apps Script HTTPS webhook engine (Port 443), Render firewall bypass (Ports 25/465/587), zero-cost ₹0 setup, and HTML transactional email pipeline.
 
 ---
 
